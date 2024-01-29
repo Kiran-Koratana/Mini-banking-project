@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            padding:0px;
+            margin:0px;
+            box-sizing: border-box;
+        }
+        .container
+        {
+            background-color:rgb(3, 3, 121);
+            height:100vh;
+            width:100%;
+            background-position:center;
+            background-size:cover;
+        }
+        .logo
+        {
+            width:90px;
+            border-radius:50px;
+            cursor:pointer;
+        }
+        nav
+        {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:20px 70px;
+        }
+       
+        nav ul li
+        {
+            display:inline-block;
+            margin-left:30px;
+            list-style:none;
+           
+        }
+        nav ul li a 
+        {
+            text-decoration:none;
+            font-size:20px;
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        nav ul li a:hover
+        {
+            border-bottom:2px solid yellowgreen;
+            
+        }
+        .page
+        {
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding:100px;
+            width:90%;
+
+        }
+        .page h1
+        {
+            font-size:50px;
+        }
+        .page p
+        {
+            font-size:20px;
+            margin-top:20px;
+        }
+        button
+        {
+            margin-top:30px;
+            padding:10px;
+            border-radius:10px;
+            background-color:yellowgreen;
+            width:200px;
+            cursor:pointer;
+            border:0px;
+            outline:none;
+            font-size:15px;
+        }
+        button a
+        {
+            text-decoration: none;
+        }
+        button:hover
+        {
+            background-color: transparent;
+            border:2px solid white;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+           
+                <nav>
+                    <img src="acc.jpg" class="logo">
+                     <ul>
+                           <li><a href="#">HOME</a></li>
+                           <li><a href="projectmainpage.html">BANKING</a></li>
+                           <li><a href="#">PROFILE</a></li>
+                           <li><a href="#">LOGIN</a></li>
+
+                     </ul>
+                </nav>
+            <div class="page">
+                <h1>Welcome to MyBank</h1>
+                <p>"Growth at an exceptional rate is a red flag in banking. It is hard enough to manage an ordinary bank; to control a sprouting weed is well-nigh impossible. If loans are expanding too quickly, 
+                    the lending officers have probably been saying 'yes' too frequently @ Designed By Lokesh Naidu"</p>
+                <a href="projectmainpage.html"><button>BANKING</button></a>
+            </div>
+         
+        </div>
+</body>
+</html>

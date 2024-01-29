@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin:0px;
+            padding:0px;
+            box-sizing:border-box;
+        }
+        .container
+        {
+            background-color:rgb(3, 3, 121);
+            height:100vh;
+            width:100%;
+            background-position:center;
+            background-size:cover;
+        }
+        .image
+        {
+            width:90px;
+            border-radius:50px;
+            cursor:pointer;
+        }
+        nav
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding:20px 70px;
+        }
+        nav ul li
+        {
+            list-style:none;
+            display: inline-block;
+            margin-left:30px;
+        }
+        nav ul li a
+        {
+            text-decoration:none;
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:20px;
+        }
+        nav ul li a:hover
+        {
+            border-bottom:2px solid yellowgreen;
+        }
+        .vertical
+        {
+                padding:40px 0px 0px 70px;
+                margin-top:20px;
+                background-color:rgb(3, 67, 157);
+                width:20%;
+                height:78%;
+                border-radius:10px;
+        }
+        .vertical ul li
+        {
+            list-style:none;
+            margin-top:30px;
+        }
+        .vertical ul li a
+        {
+            text-decoration:none;
+            color:white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:20px;
+        }
+        .vertical ul li a:hover
+        {
+            border-bottom:2px solid yellowgreen;
+        }
+        .vertical ul li button
+        {
+            width:150px;
+            padding: 10px;
+            border-radius:10px;
+            background-color: yellowgreen;
+            cursor:pointer;
+            border:0px;
+            outline:none;
+        }
+        .vertical ul li button:hover
+        {
+            border:2px solid white;
+            background-color:transparent;
+            color:white;
+        }
+        
+        .head
+        {
+             position:absolute;
+             top:21%;
+             left:45%;
+        }
+        .head h1
+        {
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:40px;
+        }
+        .head2
+        {
+             position:absolute;
+             top:35%;
+             left:25%;
+             display:none;
+        }
+        .head2 p
+        {
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:20px;
+        }
+        .head2 h1
+        {
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:40px;
+           margin-left:350px;
+            margin-top:50px;
+        }
+        .head3
+        {
+             position:absolute;
+             top:35%;
+             left:25%;
+        }
+        .head3 p
+        {
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:20px;
+        }
+        .head3 h1
+        {
+            color:white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:40px;
+           margin-left:350px;
+            margin-top:50px;
+        }
+        .money
+        {
+            position:absolute;
+            top:30%;
+            left:42%;
+            color:white;
+
+            display:none;
+        }
+        .money p
+        {
+            font-size:15px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .money input
+        {
+            width:300px;
+            padding:10px;
+            outline:none;
+            margin-top:20px;
+            border-radius:5px;
+            background:transparent;
+            border-color:yellowgreen;
+            color:white;
+            margin-left:20px;
+        }
+        table tr th.btn button
+        {
+            width:180px;
+            /* margin-top:10px; */
+            padding: 10px;
+            border-radius:10px;
+            background-color: yellowgreen;
+            cursor:pointer;
+            border:0px;
+            outline:none;
+        }
+        table tr th.btn button:hover 
+        {
+            border:2px solid white;
+            background-color:transparent;
+            color:white;
+        }
+        .trans
+        {
+            margin-top:30px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:15px;
+            margin-left:50px;
+            
+        }
+        .payBills
+        {
+            position:absolute;
+            top:30%;
+            left:42%;
+            color:white;
+            display:none;
+        }
+        .payBills p
+        {
+            font-size:15px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .payBills input
+        {
+            width:300px;
+            padding:10px;
+            outline:none;
+            margin-top:20px;
+            border-radius:5px;
+            background:transparent;
+            border-color:yellowgreen;
+            color:white;
+            margin-left:20px;
+        }
+        .payBills button
+        {
+            width:180px;
+            margin-top:10px;
+            padding: 10px;
+            border-radius:10px;
+            background-color: yellowgreen;
+            cursor:pointer;
+            border:0px;
+            outline:none;
+        }
+        .payBills button:hover 
+        {
+            border:2px solid white;
+            background-color:transparent;
+            color:white;
+        }
+        .success
+        {
+            margin-top:50px;
+            font-size:20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .view
+        {
+            position:absolute;
+            top:30%;
+            left:42%;
+            color:white;
+            display:none;
+        }
+        .view p
+        {
+            font-size:15px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .view input
+        {
+            width:300px;
+            padding:10px;
+            outline:none;
+            margin-top:20px;
+            border-radius:5px;
+            background:transparent;
+            border-color:yellowgreen;
+            color:white;
+            margin-left:20px;
+        }
+        .view button
+        {
+            width:180px;
+            margin-top:10px;
+            padding: 10px;
+            border-radius:10px;
+            background-color: yellowgreen;
+            cursor:pointer;
+            border:0px;
+            outline:none;
+        }
+        .view button:hover 
+        {
+            border:2px solid white;
+            background-color:transparent;
+            color:white;
+        }
+        .Viewc 
+        {
+            margin-top:50px;
+            display:none;
+        }
+        .complaint
+        {
+            position:absolute;
+            top:30%;
+            left:42%;
+            color:white;
+            display:none;
+        }
+        .complaint p
+        {
+            font-size:15px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .complaint input
+        {
+            width:300px;
+            padding:10px;
+            outline:none;
+            margin-top:20px;
+            border-radius:5px;
+            background:transparent;
+            border-color:yellowgreen;
+            color:white;
+            margin-left:20px;
+        }
+        .complaint textarea
+        {
+            width:300px;
+            padding:10px;
+            outline:none;
+            margin-top:20px;
+            border-radius:5px;
+            background:transparent;
+            border-color:yellowgreen;
+            color:white;
+            margin-left:20px;
+        }
+        .complaint button
+        {
+            width:180px;
+            margin-top:10px;
+            padding: 10px;
+            border-radius:10px;
+            background-color: yellowgreen;
+            cursor:pointer;
+            border:0px;
+            outline:none;
+        }
+        .complaint button:hover 
+        {
+            border:2px solid white;
+            background-color:transparent;
+            color:white;
+        }
+        .success1
+        {
+            margin-top:30px;
+            font-size:20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .profile
+        {
+            position:absolute;
+            top:30%;
+            left:42%;
+            color:white;
+            display:none;
+        }
+        .profile input
+        {
+            width:300px;
+            padding:10px;
+            outline:none;
+            margin-top:20px;
+            border-radius:5px;
+            background:transparent;
+            border-color:yellowgreen;
+            color:white;
+            margin-left:20px;
+        }
+        .profile p
+        {
+            font-size:15px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .profile button
+        {
+            width:180px;
+            margin-top:10px;
+            padding: 10px;
+            border-radius:10px;
+            background-color: yellowgreen;
+            cursor:pointer;
+            border:0px;
+            outline:none;
+        }
+        .profile button:hover 
+        {
+            border:2px solid white;
+            background-color:transparent;
+            color:white;
+        }
+        .details
+        {
+            margin-top:50px;
+            font-size:20px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-left:20px;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+            <nav>
+                <img src="acc.jpg" class="image">
+                <ul>
+                        <li><a href="BankingProject.html">HOME</a></li>
+                        <li><a href="#">BANKING</a></li>
+                        <li><a href="#">ACCOUNT</a></li>
+                        <li><a href="#">LOGIN</a></li>
+                </ul>
+            </nav>
+            <div class="vertical">
+                    <ul>
+                         <li><a href="#" onclick= "money()">Money-Transfer</a></li>
+                         <li><a href="#" onclick="pay_bills()">Pay-Bills</a></li>
+                         <li><a href="#"onclick= "statements()">View-statement</a></li>
+                         <li><a href="#" onclick="complaints()">complaints</a></li>
+                         <li><a href="#"onclick="profile()">Profile-details</a></li>
+                         <li><button onclick="exit()">EXIT</button></li>
+                    </ul>
+            </div>
+            <div class="head">
+                  <h1>Welcome to MyBank</h1>
+            </div>
+            <div class="head2" id="head1">
+                    <p>"Growth at an exceptional rate is a red flag in banking. It is hard enough to manage an ordinary bank; to control a sprouting weed is well-nigh impossible. If loans are expanding too quickly, 
+                        the lending officers have probably been saying 'yes' too frequently @ Designed by Lokesh Naidu."</p>
+                    <h1>Thank You!</h1>
+            </div>
+            <div class="head3" id="head2">
+                <p>"Growth at an exceptional rate is a red flag in banking. It is hard enough to manage an ordinary bank; to control a sprouting weed is well-nigh impossible. If loans are expanding too quickly, 
+                    the lending officers have probably been saying 'yes' too frequently @ Designed by Lokesh Naidu."</p>
+                <h1>Make Payments.......</h1>
+        </div>
+            <div class="money" id="Money">
+                <table>
+                    <tr>
+                        <th><p>AccountNumber :</p></th>
+                        <th><input type="text" placeholder="enter your accountnumber" id="accountnumber"></br>
+                            <span id="one"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th> <p>Benfisiery A/C name :</p></th>
+                        <th><input type="text" placeholder="enter Benfisiery AccountHolder name" id="Bname"><br>
+                            <span id="Bname1"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><p>Benfisiry A/C Number :</p></th>
+                        <th><input type="text" placeholder="enter Benfisiery AccountNumber" id="Bnumber"></br>
+                            <span id="two"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><p>IFSC Code :</p></th>
+                        <th><input type="text" placeholder="enter IFSC code" id="IFSC"></br>
+                            <span id="four"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><p>Amount :</p></th>
+                        <th> <input type="text" placeholder="enter amount" id="amount"></br>
+                            <span id="three"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                           
+                        </th>
+                        <th class="btn" onclick="Money_transfer()"><button>Transfer</button></th>
+                    </tr>
+                </table>     
+                <div class="trans">
+                    <span id="five"></span></br></br>
+                    <span id="six"></span>
+                </div> 
+            </div>
+            <div class="payBills" id="Paybills">
+                    <table >
+                        <tr>
+                            <th><p>Network :</p></th>
+                            <th><input type="text" placeholder="Enter Mobile Network" id="net"><br>
+                                <span id="network"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><p>MobileNumber :</p></th>
+                            <th><input type="text" placeholder="Enter MobileNumber" id="mobileNumber"></br>
+                            <span id="seven"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><p>Amount :</p></th>
+                            <th><input type="text" placeholder="Enter Amount" id="payamount"><br>
+                                <span id="amount12"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><p>Debit/Credit CardNumber :</p></th>
+                            <th><input type="text" placeholder="Enter Debit/Credit card Number" id="credit"><br>
+                            <span id="eight"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><p>CVV Number :</p></th>
+                            <th><input type="text" placeholder="Enter CVV Number" id="cvv"><br>
+                            <span id="nine"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th><p>Expiry Date :</p></th>
+                            <th><input type="text" placeholder="Enter Expiry Date" id="expdate"><br>
+                                <span id="exp"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>  
+                            </th>
+                            <th><button onclick ="Proceed()">Proceed</button></th>
+                        </tr>
+                    </table>
+                    <div class="success">
+                        <span id="ten"></span>
+                    </div>
+            </div>
+            <div class="view" id="view_state">
+                    <table>
+                            <tr>
+                                <th><p>AccountNumber :</p></th>
+                                <th><input type="text" placeholder="enter Account Number" id="account"><br>
+                                <span id="eleven"></span>
+                                </th>
+                                <tr>
+                                    <th>Todays-Date :</th>
+                                    <th><input type="text" placeholder="enter todays Date" id="date"><br>
+                                        <span id="Date"></span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th><button  onclick="done()">Proceed</button></th>
+                                </tr>
+                            </tr>
+                    </table>
+                    <div class="Viewc" id="view_component">
+                            <h5>DATE ------------------TRANSECTION----------------DEBIT/CREDIT-------------------AMOUNT</h5><br>
+                            <p>12/10/23 -------------Dmart payment -------------Debit ----------------------------7000 </p>
+                            <p>19/10/23 -------------Irctc payment ---------------Debit ----------------------------890 </p>
+                            <p>20/10/23 -------------Money Received -----------Credit ---------------------------2000 </p>
+                            <p>22/10/23 -------------Bookmyshow payment ----Debit ----------------------------500 </p>
+                            <p>29/10/23 -------------Flipkart refund --------------Credit---------------------------3000 </p>
+                    </div>
+                    
+            </div>
+            <div class="complaint" id="comp">
+                <table>
+                        <tr>
+                                <th><p>AccountNumber:</p></th>
+                                <th><input type="text" placeholder="enter accountnumber" id="Acc"><br>
+                                <span id="tweleve"></span>
+                                </th>
+                                <tr>
+                                    <th><p>Rise Your Complaint:</p></th>
+                                    <th> <textarea rows="8" cols="40" placeholder="Rise your complent along with your Mobile number" id="text"></textarea><br>
+                                        <span id="fourteen"></span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th> </th>
+                                    <th><button onclick="sub()">submit</button></th>
+                                </tr>
+                        </tr>
+                        
+                </table>
+                <div class="success1">
+                    <span id="thirteen"></span>
+                </div>
+        </div>
+        <div class="profile" id="prof">
+                    <table>
+                        <tr>
+                            <th><p>AccountNumber:</p></th>
+                            <th><input type="text" placeholder="enter your account number" id="Acc1"><br>
+                            <span id="fifteen"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th><button onclick="prof()">Submit</button></th>
+                        </tr>
+                    </table>
+                    <div class="details">
+                        <span id="sixteen"></span></br>
+                        <span id="seventeen"></span></br>
+                        <span id="eighteen"></span></br>
+                    </div>
+        </div>
+     </div>
+     <script>
+        let Money1 = document.getElementById("Money");
+        let head1=document.getElementById("head1");
+        let head2=document.getElementById("head2");
+        
+        function money() 
+        {
+            let computedStyle = window.getComputedStyle(Money1);
+    
+            if (computedStyle.display === 'none') 
+            {
+                Money1.style.display = "block";
+                pay.style.display="none";
+                view.style.display="none";
+                comp.style.display ="none";
+                prof1.style.display="none";
+                head1.style.display="none";
+                head2.style.display="none";
+            }
+        }
+        let AccountNumber=document.getElementById("accountnumber");
+        let Bname=document.getElementById("Bname");
+        let Bname1=document.getElementById("Bname1");
+        let Bnumber=document.getElementById("Bnumber");
+        let IFSC=document.getElementById("IFSC");
+        let Amount=document.getElementById("amount");
+        let one=document.getElementById("one");
+        let two=document.getElementById("two");
+        let three=document.getElementById("three");
+        let four=document.getElementById("four");
+        let five=document.getElementById("five");
+        let six=document.getElementById("six");
+        let amount=20000;
+        function Money_transfer()
+        {
+                if(AccountNumber.value.length == 11)
+                {
+                    if(Bname.value)
+                    {
+                        if(Bnumber.value.length == 11)
+                        {
+                                    if(Bnumber.value!=AccountNumber.value)
+                                    {
+                                        if(IFSC.value.length == 6)
+                                        {
+                                            if(Amount.value)
+                                            {
+                                                if(amount>Amount.value)
+                                                {
+                                                    amount=amount-Amount.value;
+                                                    five.innerHTML="Transection Successfull";
+                                                    five.style.color="yellowgreen";
+                                                    six.innerHTML="Remaining Balance is:"+amount;
+                                                    six.style.color="yellowgreen";
+
+                                                }
+                                                else
+                                                {
+                                                        three.innerHTML="Insufficent Funds";
+                                                        three.style.color="red";
+                                                        Amount.style.border="2px solid red";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                        three.innerHTML="Please enter amount";
+                                                        three.style.color="red";
+                                                        Amount.style.border="2px solid red";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            four.innerHTML="IFSC code must be conains 6 digits";
+                                            four.style.color="red";
+                                            IFSC.style.border="2px solid red";
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        alert("Benfisiry account number and account Number should not be same");
+                                    }
+                        }
+                        else
+                        {
+                            two.innerHTML="Benfisiry A/C mustbe contains 11 digits";
+                            two.style.color="red";
+                            Bnumber.style.border="2px solid red";
+                        }
+                    }
+                    else
+                    {
+                        Bname1.innerHTML="Benfisiry name mustbe required*"
+                        Bname1.style.color="red";
+                        Bname.style.border="2px solid red";
+                    }
+                }
+                else
+                {
+                        one.innerHTML="A/C number mustbe contains 11 digits";
+                        one.style.color="red";
+                        AccountNumber.style.border="2px solid red";
+                }
+        }
+        let Mobile_Number=document.getElementById("mobileNumber");
+        let Debit_Credit=document.getElementById("credit");
+        let Pay_amount=document.getElementById("payamount");
+        let CVV=document.getElementById("cvv");
+        let seven=document.getElementById("seven");
+        let eight=document.getElementById("eight");
+        let nine=document.getElementById("nine");
+        let ten=document.getElementById("ten");
+        let pay=document.getElementById("Paybills");
+        let expdate=document.getElementById("expdate");
+        let exp=document.getElementById("exp");
+        let amount12=document.getElementById("amount12");
+        let network=document.getElementById("network");
+        let net=document.getElementById("net");
+        function pay_bills()
+        {
+            let computedStyle1 = window.getComputedStyle(pay);
+                if(computedStyle1.display === 'none' )
+                {
+                    pay.style.display = "block";
+                    Money1.style.display="none";
+                    view.style.display="none";
+                    comp.style.display ="none";
+                    prof1.style.display="none";
+                    head1.style.display="none";
+                    head2.style.display="none";
+                }
+                
+        }
+        function Proceed()
+        {
+            if(net.value)
+            {
+                if(Mobile_Number.value.length == 10 && Mobile_Number.value)
+                {
+                        if(Debit_Credit.value.length == 12 &&  Debit_Credit.value)
+                        {
+                                if(CVV.value.length == 3 && CVV.value)
+                                {
+                                    if(Pay_amount.value)
+                                    {
+                                        if(expdate.value)
+                                        {
+
+                                               if(amount < Pay_amount.value)
+                                               {
+                                                   ten.innerHTML="Insufficient Funds";
+                                                   ten.style.color="red";
+                                               }
+                                               else
+                                               {
+                                                   ten.innerHTML="PayMent is Successfull";
+                                                   ten.style.color="yellowgreen";
+                                               }
+                                        }
+                                        else
+                                        {
+                                            exp.innerHTML="please enter amount*";
+                                            exp.style.color="red";
+                                            expdate.style.border="2px solid red";
+                                        }
+                                    }
+                                    else
+                                    {
+                                            amount12.innerHTML="please enter amount*";
+                                            amount12.style.color="red";
+                                            Pay_amount.style.border="2px solid red";
+                                    }
+                                        
+                                }
+                                else
+                                {
+                                    nine.innerHTML="CVV number mustbe contains 3 digits*";
+                                    nine.style.color="red";
+                                    CVV.style.border="2px solid red";
+                                }
+                        }
+                        else
+                        {
+                            eight.innerHTML="Debit/Credit number mustbe contins 12 digits*";
+                            eight.style.color="red";
+                            Debit_Credit.style.border="2px solid red";
+                        }
+                }
+                else
+                {
+                    seven.innerHTML="mobileNumber mustbe contains 10 digits*";
+                    seven.style.color="red";
+                    Mobile_Number.style.border="2px solid red";
+                }
+            }
+            else
+            {
+                network.innerHTML="Network mustbe required*";
+                network.style.color="red";
+                net.style.border="2px solid red";
+            }
+        }
+        let account=document.getElementById("account");
+        let eleven=document.getElementById("eleven");
+        let view_component=document.getElementById("view_component");
+        let view=document.getElementById("view_state");
+        let date=document.getElementById("date");
+        let Date1=document.getElementById("Date");
+        function statements()
+        {
+            let computedStyle2 = window.getComputedStyle(view);
+            if(computedStyle2.display==='none')
+            {
+                view.style.display="block";
+                Money1.style.display="none";
+                pay.style.display = "none";
+                comp.style.display ="none";
+                prof1.style.display="none";
+                head1.style.display="none";
+                head2.style.display="none";
+
+            }
+        }
+        function done()
+        {
+            let computedStyle3 = window.getComputedStyle(view_component);
+                if(account.value.length == 11)
+                {
+                    if(!date.value)
+                    {
+                        Date1.innerHTML="Date Mustbe required*";
+                        Date1.style.color="red";
+                        date.style.border="2px solid red";
+                    
+                        
+                    }
+                    else
+                    {
+                        if(computedStyle3.display === 'none')
+                        {
+                            view_component.style.display = "block";
+                        }
+                    }
+                }
+                else
+                {
+                        eleven.innerHTML="A/c number mustbe contains 11 digits*";
+                        eleven.style.color="red";
+                        account.style.border="2px solid red";
+                }
+                if(!account.value)
+                {
+                    eleven.innerHTML="A/c number mustbe required*";
+                    eleven.style.color="red";
+                    account.style.border="2px solid red";
+                }
+               
+        }
+        let Acc=document.getElementById("Acc");
+        let thirteen=document.getElementById("thirteen");
+        let fourteen=document.getElementById("fourteen");
+        let text=document.getElementById("text");
+        let comp=document.getElementById("comp");
+        function complaints()
+        {
+            let computedStyle4 = window.getComputedStyle(comp);
+            if(computedStyle4.display === 'none')
+            {
+                comp.style.display ="block";
+                Money1.style.display="none";
+                pay.style.display = "none";
+                view.style.display="none";
+                prof1.style.display="none";
+                head1.style.display="none";
+                head2.style.display="none";
+            }
+        }
+        function sub()
+        {
+            if(Acc.value.length == 11)
+            {
+                    if(!text.value)
+                    {
+                         fourteen.innerHTML="Plese enter your complaint*";
+                         fourteen.style.color="red";
+                         text.style.border="2px solid red";
+                    }
+                    else
+                    {
+                        thirteen.innerHTML="Thanks..one of our representative will contact you shortly Regarding this complaint.."
+                        thirteen.style.color="yellowgreen";
+
+                    }
+            }
+            else
+            {
+                tweleve.innerHTML="A/c number mustbe contains 11 digits*";
+                tweleve.style.color="red";
+            }
+            if(!Acc.value)
+            {
+                tweleve.innerHTML="A/c number mustbe required*";
+                tweleve.style.color="red";
+                Acc.style.border="2px solid red";
+            }
+        }
+        let Acc1=document.getElementById("Acc1");
+        let fifteen=document.getElementById("fifteen");
+        let sixteen=document.getElementById("sixteen");
+        let seventeen=document.getElementById("seventeen");
+        let eighteen=document.getElementById("eighteen");
+        let prof1=document.getElementById("prof");
+        function profile()
+        {
+            let computedStyle5 = window.getComputedStyle(prof1);
+            if(computedStyle5.display === 'none')
+            {
+                prof1.style.display="block";
+                comp.style.display ="none";
+                Money1.style.display="none";
+                pay.style.display = "none";
+                view.style.display="none";
+                head1.style.display="none";
+                head2.style.display="none";
+            }
+        }
+        function prof()
+        {
+                if(Acc1.value.length == 11)
+                {
+                           sixteen.innerHTML="Account Holder Name is : ADMIN.";
+                           sixteen.style.color="yellowgreen";
+                           seventeen.innerHTML="Account Holder Account Type : Savings Account.";
+                           seventeen.style.color="yellowgreen";
+                           eighteen.innerHTML="Account Holder Branch Address : Sanjeev reddy nagar,Hyderabad";
+                           eighteen.style.color="yellowgreen";
+                }
+                else
+                {
+                    fifteen.innerHTML="A/c number mustbe contains 11 digits*";
+                    fifteen.style.color="red";
+                }
+                if(!Acc1.value)
+                {
+                    
+                            fifteen.innerHTML="A/c number mustbe required*";
+                            fifteen.style.color="red";
+                            Acc1.style.border="2px solid red";
+                }
+        }
+    function exit() 
+    {
+    let computedStyle7 = window.getComputedStyle(head1);
+    let computedStyle8 = window.getComputedStyle(head2);
+
+    if (computedStyle7.display === 'none') 
+    {
+        head1.style.display = "block";
+        Money1.style.display = "none";
+        pay.style.display = "none";
+        view.style.display = "none";
+        comp.style.display = "none";
+        prof1.style.display = "none";
+        head2.style.display="block";
+    } 
+    if(computedStyle8.display==='block')
+    {
+        head2.style.display = "none";
+       
+    }      
+}    
+    </script>
+</body>
+</html>
